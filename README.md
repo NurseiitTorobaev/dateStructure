@@ -12,3 +12,4 @@
  5. printDate(): This function should print the date in a readable format, such as "January 1, 2023".
  
  6. operator<(const Date& date): This comparison operator is used to compare two dates according to year, month and day.
+ 7. sortByDate(): This functions allows user to sort dates in chronological order.
