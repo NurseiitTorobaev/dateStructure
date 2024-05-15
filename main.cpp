@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm> // For std::sort
 #include <cmath>
 using namespace std;
 
@@ -84,6 +85,12 @@ struct Date
     }
 };
 
+
+bool sortByDate(const Date &a, const Date &b)
+{
+    return a < b;
+}
+
 void printMenu()
 {
     cout << "Main Menu:\n";
@@ -92,7 +99,9 @@ void printMenu()
     cout << "3. Compare Dates\n";
     cout << "4. Calculate Difference\n";
     cout << "5. Get Day of the Week\n";
-    cout << "6. Exit\n";
+    cout << "6. Sort Dates\n"; 
+    cout << "7. Exit\n";
+    
 }
 
 int main()
@@ -199,14 +208,20 @@ int main()
             }
             break;
         }
-        case 6:
+        case 6: 
+        {
+            sort(dates.begin(), dates.end(), sortByDate);
+            cout << "Dates sorted in chronological order." << endl;
+            break;
+        }
+        case 7:
             cout << "Exiting program. Goodbye!" << endl;
             break;
         default:
             cout << "Invalid choice. Please enter a number from 1 to 6." << endl;
             break;
         }
-    } while (choice != 6);
+    } while (choice != 7);
 
     return 0;
 }
